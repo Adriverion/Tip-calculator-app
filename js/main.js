@@ -16,19 +16,22 @@ const check = {
     tipPerson() {return this.tip() / this.people}
 }
 
-const defaultPercentage = (elem = $defaultButton) => {
-    for (let item of elem.parentElement.children) 
+const defaultPercentage = (elem = null, noSelect = true) => {
+    const $parent = (elem === null)? $defaultButton.parentElement : elem.parentElement;
+    for (let item of $parent.children) 
         item.classList.remove('calculator__button--cyan');
 
-    elem.classList.add("calculator__button--cyan");
-    check.percentage = parseInt(elem.value);
+    if (noSelect) {
+        elem.classList.add('calculator__button--cyan');
+        check.percentage = parseInt(elem.value);
+    }
 }
 
 const reset = () => {
     $inputBill.clear();
     $inputPercentage.clear();
     $inputPeople.clear();
-    defaultPercentage();
+    defaultPercentage($defaultButton);
     $result.textContent = '$0.00';
     $resultTip.textContent = '$0.00';
     check.bill = 0;
@@ -44,6 +47,7 @@ const showResult = () => {
 
 window.addEventListener('click', e => {
     if (e.target.matches('button.calculator__form-panel-item')) defaultPercentage(e.target);
+    if (e.target.matches('input.calculator__form-panel-item')) defaultPercentage(null, false);
     if (e.target.value === "reset") reset();
     showResult();
 })

@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 :root {
+    --soft-cyan: #9de9df;
     --strong-cyan: #26c0ab;
     --very-dark-cyan: #00494d;
     --dark-grayish-cyan: #5e7a7d;
@@ -192,4 +193,9 @@ main {
         border-radius: 1rem;
     }
     .calculator__form-panel-item { max-width: 4.87rem; }
+
+    .calculator__button:active {
+        background-color: var(--soft-cyan);
+        color: var(--very-dark-cyan);
+    }
 }

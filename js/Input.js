@@ -38,10 +38,8 @@ export default class InputNumber {
         this.#characterLimiter();
 
         if(this.#input.value === "")
-            this.#inputStateChange("ERROR", "");
-        else if (!this.value)
-            this.#inputStateChange("ERROR", "Not a Number");
-        else if (this.value < 0)
+            this.#inputStateChange("ERROR", "empty field");
+        else if (this.value <= 0)
             this.#inputStateChange("ERROR", "can´t be zero");
         else {
             this.#inputStateChange("OK");
