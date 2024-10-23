@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="css/styles.css">
+  <script defer src="./js/main.js" type="module"></script>
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   <title>Frontend Mentor | Tip calculator app</title>
 </head>
@@ -15,10 +16,11 @@
     </header>
     <section class="calculator">
       <div class="calculator__box-content">
-        <div class="calculator__form-section">
+
+        <div id="input-bill" class="calculator__form-section">
           <div class="calculator__label">
             <label class="calculator__text calculator__text--small" for="bill">Bill</label>
-            <p class="calculator__text calculator__text--small calculator__text--red">{Error}</p>
+            <p class="calculator__text calculator__text--small calculator__text--error"></p>
           </div>
           <div class="calculator__input-icon-content">
             <svg class="calculator__input-icon" xmlns="http://www.w3.org/2000/svg" width="11" height="17">
@@ -27,24 +29,26 @@
             <input class="calculator__input" type="number" name="bill" placeholder="0">
           </div>
         </div>
-        <div class="calculator__form-section">
+
+        <div id="input-percentage" class="calculator__form-section">
           <div class="calculator__label">
-            <label class="calculator__text calculator__text--small" for="select">Select Tip %</label>
-            <p class="calculator__text calculator__text--small calculator__text--red">{Error}</p>
+            <label class="calculator__text calculator__text--small" for="percentage">Select Tip %</label>
+            <p class="calculator__text calculator__text--small calculator__text--error"></p>
           </div>
           <div class="calculator__form-panel">
-            <button class="calculator__form-panel-item calculator__button">5%</button>
-            <button class="calculator__form-panel-item calculator__button">10%</button>
-            <button class="calculator__form-panel-item calculator__button">15%</button>
-            <button class="calculator__form-panel-item calculator__button">25%</button>
-            <button class="calculator__form-panel-item calculator__button">50%</button>
-            <input class="calculator__form-panel-item calculator__input" type="number" placeholder="Custom">
+            <button class="calculator__form-panel-item calculator__button" value="5">5%</button>
+            <button class="calculator__form-panel-item calculator__button" value="10">10%</button>
+            <button class="calculator__form-panel-item calculator__button calculator__button--cyan" value="15">15%</button>
+            <button class="calculator__form-panel-item calculator__button" value="25">25%</button>
+            <button class="calculator__form-panel-item calculator__button" value="50">50%</button>
+            <input class="calculator__form-panel-item calculator__input" type="number" name="percentage" placeholder="Custom">
           </div>
         </div>
-        <div class="calculator__form-section">
+
+        <div id="input-people" class="calculator__form-section">
           <div class="calculator__label">
             <label class="calculator__text calculator__text--small" for="people">Number of People</label>
-            <p class="calculator__text calculator__text--small calculator__text--red">{Error}</p>
+            <p class="calculator__text calculator__text--small calculator__text--error"></p>
           </div>
           <div class="calculator__input-icon-content">
             <svg class="calculator__input-icon" xmlns="http://www.w3.org/2000/svg" width="13" height="16">
@@ -55,25 +59,25 @@
         </div>
       </div>
       <div class="calculator__box-content calculator__box-content--dark">
-        <div>
-          <div>
+        <div class="calculator__results-content">
+          <div class="calculator__result-box">
             <p class="calculator__text calculator__text--small">
               <span class="calculator__text--white">Tip Amount</span>
               <br>
               <span class="calculator__text--extra-small">/ person</span>
             </p>
-            <p class="calculator__text calculator__text--big calculator__text--cyan">$0.00</p>
+            <p id="tip-amount" class="calculator__text calculator__text--big calculator__text--cyan">$0.00</p>
           </div>
-          <div>
+          <div class="calculator__result-box">
             <p class="calculator__text calculator__text--small">
               <span class="calculator__text--white">Total</span>
               <br>
               <span class="calculator__text--extra-small">/ person</span>
             </p>
-            <p class="calculator__text calculator__text--big calculator__text--cyan">$0.00</p>
+            <p id="total" class="calculator__text calculator__text--big calculator__text--cyan">$0.00</p>
           </div>
         </div>
-        <button class="calculator__button calculator__button--cyan">Reset</button>
+        <button class="calculator__button calculator__button--cyan" value="reset">Reset</button>
       </div>
     </section>
   </main>
