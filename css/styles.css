@@ -123,6 +123,10 @@ main {
     background-color: var(--strong-cyan);
 }
 
+.calculator__button:disabled {
+    opacity: .3;
+}
+
 .calculator__input-icon-content {
     position: relative;
     display: flex;
@@ -190,6 +194,8 @@ main {
 @media (min-width: 32rem) {
     .calculator {
         width: 95%;
+        height: 100%;
+        min-height: 20rem;
         border-radius: 1rem;
     }
     .calculator__form-panel-item { max-width: 4.87rem; }
